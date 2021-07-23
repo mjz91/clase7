@@ -1,11 +1,17 @@
-let fs = require('fs');
-let moment = require('moment');
+const express = require('express')
+const app = express()
+const port = 3000
+let fs = require('fs')
+//let moment = require('moment');
 
-//console.log(fs);
+app.get('/',(req, res)=> {
+    res.send('DENTRO DE ESTE REQUEST TIPO GET')
+})
 
-let datos = fs.readFileSync(__dirname + '/prueba.txt', 'utf-8');
+app.get('/perfiles', (req, res)=> {
+    res.send('estoy en perfiles')
+})
 
-
-console.log(datos);
-
-console.log(moment().format('MM-DD-YY'));
+app.listen(port, () => {
+    console.log('Example app listening at http://localhost:${port}')
+})
